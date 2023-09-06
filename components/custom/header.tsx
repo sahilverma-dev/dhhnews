@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 // icons
 import { CiSearch as SearchIcon } from "react-icons/ci";
@@ -10,12 +10,23 @@ import { HiBars2 as MenuIcon } from "react-icons/hi2";
 // components
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 // theme
 import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
+import { menuData } from "@/constants/menuData";
+import { Input } from "../ui/input";
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <Sheet>
       <header className="w-full px-4 py-6 border-b">
@@ -51,55 +62,77 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2">
               <ThemeToggle />
-              <Button
-                type="button"
-                variant={"ghost"}
-                size="icon"
-                className="search icon-button float-end"
-              >
-                <SearchIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all" />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    type="button"
+                    variant={"ghost"}
+                    size="icon"
+                    className="search icon-button float-end"
+                  >
+                    <SearchIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-auto p-3" side="right">
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Input placeholder="Enter your query..." />
+                      <Button
+                        variant={"secondary"}
+                        size={"icon"}
+                        className="aspect-square"
+                      >
+                        <SearchIcon />
+                      </Button>
+                    </div>
+                  </form>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
         <SheetContent side="left" className="w-[300px]  h-full flex flex-col">
           <div className="">
-            <a
-              href="https://themeger.shop/wordpress/katen/minimal/"
-              className="navbar-brand hidden dark:block"
-            >
+            <Link href="/">
               <Image
                 src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo-light.svg"
                 alt="Katen"
                 width={118}
                 height={26}
+                className="hidden dark:block"
               />
-            </a>
-            <a
-              href="https://themeger.shop/wordpress/katen/minimal/"
-              className="navbar-brand block dark:hidden"
-            >
               <Image
                 src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo.svg"
                 alt="Katen"
                 width={118}
                 height={26}
+                className="block dark:hidden"
               />
-            </a>
+            </Link>
           </div>
           <nav className="mt-12">
             <ul>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {menuData.map((menu) => (
                 <li
-                  key={index}
+                  key={menu.route}
                   id="menu-item-30"
-                  className="border-b w-full px-0 py-4 group"
+                  className={`border-b w-full px-0 py-4 group ${
+                    pathname === menu.route ? "border-primary" : ""
+                  }`}
                 >
                   <Link
-                    href="/"
-                    className="font-normal block text-gray-500 dark:text-gray-400 text-sm group-hover:text-primary w-full"
+                    href={menu.route}
+                    className={` block ${
+                      pathname === menu.route
+                        ? "text-primary font-medium "
+                        : "text-gray-500 font-normal dark:text-gray-400"
+                    } text-sm group-hover:text-primary w-full transition-all`}
                   >
-                    Home
+                    {menu.label}
                   </Link>
                 </li>
               ))}

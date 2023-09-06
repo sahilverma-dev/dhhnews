@@ -12,6 +12,20 @@ body {
   @apply font-poppins;
 }
 
+.btn {
+  color: #fff;
+  padding: 9.5px 36px;
+  background: #fe4f70;
+  background: -webkit-linear-gradient(
+    left,
+    #fe4f70 0%,
+    #ffa387 51%,
+    #fe4f70 100%
+  );
+  background: linear-gradient(to right, #fe4f70 0%, #ffa387 51%, #fe4f70 100%);
+  background-size: 200% auto;
+}
+
 .category-badge {
   color: #fff;
   font-size: 13px;

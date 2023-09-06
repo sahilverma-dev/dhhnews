@@ -27,7 +27,7 @@ export default function RootLayout({
           enableSystem
         >
           <Header />
-          <main className="p-4 max-w-4xl mx-auto">{children}</main>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>

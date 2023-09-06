@@ -10,8 +10,15 @@ const Footer = () => {
         <div className="w-full">
           <div className="w-full flex items-center justify-between flex-col md:flex-row gap-y-2 md:gap-y-4">
             <div className="col-md-4">
-              <span className="font-bold">
-                © 2023 Katen. Theme by ThemeGer.{" "}
+              <span className="text-gray-400">
+                © 2023 Katen. Theme by{" "}
+                <a
+                  href="https://sahilverma.dev/"
+                  target="_blank"
+                  className="text-zinc-900 dark:text-white hover:text-primary font-bold translate-x-full"
+                >
+                  Sahil Verma
+                </a>{" "}
               </span>
             </div>
             {/* TODO: change icons */}

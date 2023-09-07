@@ -18,7 +18,7 @@ const NewsCard: FC<Props> = ({ news }) => {
         href={`/news/${news.slug}`}
         className="relative block group aspect-video rounded-lg overflow-hidden"
       >
-        <div className="absolute top-2 left-2 md:top-4 md:left-4 category-badge">
+        <div className="absolute top-3 left-3 md:top-4 md:left-4 category-badge">
           {news.categories[0].title}
         </div>
         <Image
@@ -26,7 +26,7 @@ const NewsCard: FC<Props> = ({ news }) => {
           height={428}
           width={851}
           alt={news?.poster?.alt}
-          className="w-full h-full justify-normal object-cover group-hover:scale-125 duration-300 ease-in-out transition-transform align-middle"
+          className="w-full h-full justify-normal object-cover group-hover:scale-105 duration-300 ease-in-out transition-transform align-middle"
           priority
         />
       </Link>
@@ -47,7 +47,7 @@ const NewsCard: FC<Props> = ({ news }) => {
               href={`/author/${news?.author?.slug}`}
               title={`Posts by ${news?.author?.name}`}
               rel="author"
-              className="text-zinc-900 dark:text-white text-base font-semibold hover:text-primary"
+              className="text-title dark:text-white text-base font-semibold hover:text-primary"
             >
               {news?.author?.name}
             </Link>
@@ -57,10 +57,10 @@ const NewsCard: FC<Props> = ({ news }) => {
             </div>
           </div>
         </div>
-        <h5 className="font-bold text-2xl md:text-4xl font-poppins mb-0 mt-4 hover:text-primary">
+        <h5 className="font-bold text-title dark:text-white text-2xl md:text-4xl font-poppins mb-0 mt-4 hover:text-primary">
           <Link href={`/news/${news?.slug}`}>{news?.title}</Link>
         </h5>
-        <p className="py-2 text-sm md:text-base md:py-4 font-poppins text-gray-400 dark:text-gray-500">
+        <p className="py-2 text-sm md:text-base md:py-4 font-poppins text-gray-400 dark:text-gray-300">
           {news?.description}
         </p>
       </div>

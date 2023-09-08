@@ -10,6 +10,7 @@ import skill from "./schemas/skill";
 import artist from "./schemas/artist";
 import youtube from "./schemas/youtube";
 import instagram from "./schemas/instagram";
+import featured from "./schemas/featured";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     artist,
     youtube,
     instagram,
+    featured,
   ],
 };

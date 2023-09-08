@@ -1,4 +1,7 @@
 "use client";
+
+import { FC } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,54 +13,77 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 import Image from "next/image";
+import { News } from "@/interfaces";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { formatDate } from "@/lib/utils";
 
-const Carousel = () => {
+interface Props {
+  feature: News[];
+}
+
+const Carousel: FC<Props> = ({ feature }) => {
   return (
-    <div className=" mb-4 w-full rounded-lg overflow-hidden">
+    <div className="mb-4 w-full h-full rounded-lg overflow-hidden">
       <Swiper
         pagination={{
           clickable: true,
           dynamicBullets: true,
         }}
         loop
-        height={400}
+        // height={400}
         spaceBetween={10}
         modules={[Pagination]}
       >
-        {Array.from({ length: 10 }).map((_, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full group rounded-lg aspect-square md:aspect-auto overflow-hidden">
-              <div className="absolute inset-0 w-full h-full bg-black/20 dark:bg-black/50" />
+        {feature.map((item) => (
+          <SwiperSlide
+            key={item.slug}
+            style={{
+              height: 400,
+            }}
+          >
+            <div className="relative w-full h-full group rounded-lg aspect-video md:aspect-auto overflow-hidden">
+              <div className="absolute inset-0 w-full h-full bg-black/50" />
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col text-center w-full max-w-[650px] items-center gap-2 md:gap-4">
-                <div className="category-badge">hello</div>
+                <Link
+                  href={`/category/${item.categories[0].slug}`}
+                  tabIndex={0}
+                  className="text-white transition-all"
+                >
+                  <div className="category-badge">
+                    {item.categories[0].title}
+                  </div>
+                </Link>
                 <h4 className="text-2xl w-[80%] md:w-full md:text-4xl font-bold my-1 md:my-5">
-                  <a
-                    href="https://themeger.shop/wordpress/katen/classic/blog/2022/08/23/your-light-is-about-to-stop-being-relevant/"
+                  <Link
+                    href={`/news/${item.slug}`}
                     tabIndex={0}
                     className="text-white transition-all"
                   >
-                    Your Light Is About To Stop Being Relevant
-                  </a>
+                    {item.title}
+                  </Link>
                 </h4>
                 <ul className="flex gap-3 items-center text-sm text-gray-100 md:text-gray-200 mb-0">
                   <li className="list-inline-item">
-                    <a
-                      href="https://themeger.shop/wordpress/katen/classic/blog/author/katen/"
-                      title="Posts by Katen Doe"
+                    <Link
+                      href={`/author/${item.author.slug}`}
+                      title={`Posts by ${item.author.name}`}
                       rel="author"
                       tabIndex={0}
+                      className="font-medium text-white hover:text-primary"
                     >
-                      Katen Doe
-                    </a>
+                      {item.author.name}
+                    </Link>{" "}
+                    posted at {formatDate(item._createdAt)}
                   </li>
-                  <li className="list-inline-item">August 23, 2022</li>
                 </ul>
               </div>
               <Image
-                src="https://themeger.shop/wordpress/katen/classic/wp-content/uploads/sites/4/2022/08/matt-le-112706-unsplash-1140x540.jpg"
+                src={item.poster.src}
+                alt={item.poster.alt}
+                title={item.poster.alt}
                 width={1140}
-                height={540}
-                alt="poster"
+                height={400}
                 className="w-full h-full object-cover "
               />
             </div>

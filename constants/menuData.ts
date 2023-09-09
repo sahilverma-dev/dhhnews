@@ -24,7 +24,7 @@ export const menuData = [
     label: "Wallpapers",
   },
   {
-    route: "/about-us",
+    route: "/about",
     label: "About US",
   },
   {

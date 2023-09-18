@@ -1,8 +1,4 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import ContactForm from "./components/contact-form";
 
 // icons
 import {
@@ -13,10 +9,6 @@ import {
 } from "react-icons/bs";
 
 const Contact = () => {
-  const formSubmit = (e: HTMLFormElement) => {
-    e.prev;
-  };
-
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-zinc-900 py-6 md:py-12">
       <div className="">
@@ -226,86 +218,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   Send us a message
                 </h3>
-                <form className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Name
-                    </label>
-                    <div className="mt-1">
-                      <Input
-                        type="text"
-                        required
-                        placeholder="Enter your name"
-                        className="block w-full rounded-md border border-gray-300 dark:border-gray-500 px-4 py-3 text-gray-900 dark:text-gray-100 shadow-sm h-auto"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Email
-                    </label>
-                    <div className="mt-1">
-                      <Input
-                        required
-                        type="email"
-                        placeholder="Enter your email"
-                        className="block w-full rounded-md border border-gray-300 dark:border-gray-500 px-4 py-3 text-gray-900 dark:text-gray-100 shadow-sm h-auto"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Subject
-                    </label>
-                    <div className="mt-1">
-                      <Input
-                        type="text"
-                        required
-                        placeholder="Enter your subject"
-                        className="block w-full rounded-md border border-gray-300 dark:border-gray-500 px-4 py-3 text-gray-900 dark:text-gray-100 shadow-sm h-auto"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <div className="flex justify-between">
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-gray-900 dark:text-gray-100"
-                      >
-                        Message
-                      </label>
-                      <span id="message-max" className="text-sm text-gray-500">
-                        Max. 1500 characters
-                      </span>
-                    </div>
-                    <div className="mt-1">
-                      <Textarea
-                        placeholder="Enter your message"
-                        required
-                        rows={5}
-                        className="block w-full rounded-md border border-gray-300 dark:border-gray-500 px-4 py-3 text-gray-900 dark:text-gray-100 shadow-sm h-auto"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2 sm:flex sm:justify-end">
-                    <Button
-                      type="submit"
-                      // disabled
-                      className="w-full px-6 py-3 sm:px-12 text-base font-medium sm:w-auto h-auto"
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>

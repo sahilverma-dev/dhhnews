@@ -11,6 +11,7 @@ import artist from "./schemas/artist";
 import youtube from "./schemas/youtube";
 import instagram from "./schemas/instagram";
 import featured from "./schemas/featured";
+import contact from "./schemas/contact";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,5 +25,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     youtube,
     instagram,
     featured,
+    contact,
   ],
 };

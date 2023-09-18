@@ -59,3 +59,10 @@ export interface Artist {
   label: Label;
   skills: Skill[];
 }
+
+export interface ContactData {
+  email: string;
+  name: string;
+  title: string;
+  message: string;
+}

@@ -1,10 +1,11 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/custom/header";
 import Footer from "@/components/custom/footer";
+import TanstackQueryProvider from "@/components/providers/tanstack-query-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,17 +22,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          storageKey="dhh-news"
-          enableSystem
-        >
-          <NextTopLoader color="#f97316" showSpinner={false} />
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <TanstackQueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            storageKey="dhh-news"
+            enableSystem
+          >
+            <NextTopLoader color="#f97316" showSpinner={false} />
+
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

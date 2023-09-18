@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import Image from "next/image";
 import { News } from "@/interfaces";
@@ -33,7 +33,10 @@ const Carousel: FC<Props> = ({ feature }) => {
         loop
         // height={400}
         spaceBetween={10}
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
+        autoplay={{
+          delay: 5000,
+        }}
       >
         {feature.map((item) => (
           <SwiperSlide

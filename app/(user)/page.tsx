@@ -17,7 +17,7 @@ const Home = async () => {
         <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
           Featured
         </h3>
-        <CustomTooltip title="Featured news changes every week">
+        <CustomTooltip title="Featured news changes every day">
           <InfoIcon />
         </CustomTooltip>
       </div>

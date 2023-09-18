@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // icons
 import { CiSearch as SearchIcon } from "react-icons/ci";
@@ -9,13 +9,10 @@ import { HiBars2 as MenuIcon } from "react-icons/hi2";
 
 // components
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -24,20 +21,27 @@ import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
 import { menuData } from "@/constants/menuData";
 import { Input } from "../ui/input";
+import { useState } from "react";
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [openSheet, setOpenSheet] = useState(false);
+  const [search, setSearch] = useState("");
   return (
-    <Sheet>
+    <>
       <header className="w-full px-4 py-6 border-b">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex items-center justify-between">
             <div className="w-20">
-              <SheetTrigger asChild>
-                <Button type="button" variant={"ghost"} size="icon">
-                  <MenuIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all" />
-                </Button>
-              </SheetTrigger>
+              <Button
+                type="button"
+                variant={"ghost"}
+                size="icon"
+                onClick={() => setOpenSheet(true)}
+              >
+                <MenuIcon className="absolute h-[1.2rem] w-[1.2rem] transition-all" />
+              </Button>
             </div>
             <div className=" text-center">
               <Link href="/" className="navbar-brand dark:hidden">
@@ -77,11 +81,23 @@ const Header = () => {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
+                      console.log(search);
+                      router.push(
+                        `/search?q=${search
+                          .toLocaleLowerCase()
+                          .replaceAll(" ", "-")}`
+                      );
                     }}
                   >
                     <div className="flex items-center gap-2">
-                      <Input placeholder="Enter your query..." />
+                      <Input
+                        type="search"
+                        placeholder="Enter your query..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                      />
                       <Button
+                        type="submit"
                         variant={"secondary"}
                         size={"icon"}
                         className="aspect-square"
@@ -95,6 +111,8 @@ const Header = () => {
             </div>
           </div>
         </div>
+      </header>
+      <Sheet open={openSheet} onOpenChange={setOpenSheet}>
         <SheetContent side="left" className="w-[300px]  h-full flex flex-col">
           <div className="">
             <Link href="/">
@@ -123,6 +141,7 @@ const Header = () => {
                   className={`border-b w-full px-0 py-4 group ${
                     pathname === menu.route ? "border-primary" : ""
                   }`}
+                  onClick={() => setOpenSheet(false)}
                 >
                   <Link
                     href={menu.route}
@@ -172,8 +191,8 @@ const Header = () => {
             </li>
           </ul> */}
         </SheetContent>
-      </header>
-    </Sheet>
+      </Sheet>
+    </>
   );
 };
 

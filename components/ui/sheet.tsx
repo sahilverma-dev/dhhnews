@@ -70,7 +70,7 @@ const SheetContent = React.forwardRef<
     >
       {children}
       <div className="absolute right-4 top-4 flex items-center gap-2">
-        <kbd className="px-2 hidden md:block py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-md dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
+        <kbd className="px-2 hidden md:block py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-md dark:bg-zinc-800 dark:text-gray-100 dark:border-zinc-700">
           ESC
         </kbd>
         <SheetPrimitive.Close className=" rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">

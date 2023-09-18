@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/custom/header";
 import Footer from "@/components/custom/footer";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           storageKey="dhh-news"
           enableSystem
         >
+          <NextTopLoader color="#f97316" showSpinner={false} />
           <Header />
           {children}
           <Footer />

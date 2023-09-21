@@ -15,7 +15,8 @@ body {
 .btn {
   color: #fff;
   padding: 9.5px 36px;
-  background: #fe4f70;
+  @apply bg-primary hover:bg-orange-600 transition-all
+  /* background: #fe4f70;
   background: -webkit-linear-gradient(
     left,
     #fe4f70 0%,
@@ -23,7 +24,7 @@ body {
     #fe4f70 100%
   );
   background: linear-gradient(to right, #fe4f70 0%, #ffa387 51%, #fe4f70 100%);
-  background-size: 200% auto;
+  background-size: 200% auto; */;
 }
 
 /* swiper code */
@@ -40,7 +41,8 @@ span.swiper-pagination-bullet {
   padding: 6px 11px;
   line-height: 1;
   z-index: 1;
-  background: #fe4f70;
+  @apply bg-primary
+  /* background: #fe4f70;
   background: -webkit-linear-gradient(
     left,
     #fe4f70 0%,
@@ -51,7 +53,7 @@ span.swiper-pagination-bullet {
   background-size: 200% auto;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; */;
 }
 
 @layer base {

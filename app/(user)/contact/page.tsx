@@ -8,21 +8,25 @@ import {
   BsLinkedin as LinkedinIcon,
 } from "react-icons/bs";
 
+export const metadata = {
+  title: "Contact",
+  description: "Want to say me something?",
+};
+
 const Contact = () => {
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-zinc-900 py-6 md:py-12">
-      <div className="">
-        <div className="relative z-10 overflow-hidden pb-6 lg:pb-8">
-          <div className="mx-auto max-w-7xl pl-4 pr-8 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-              Contact to DHH News
-            </h1>
-            <p className="mt-2 max-w-3xl text-gray-500 dark:text-gray-300">
-              Share any problem, feedback, or question you have.
-            </p>
-          </div>
+      <div className="relative z-10 overflow-hidden pb-6 lg:pb-8">
+        <div className="mx-auto max-w-7xl pl-4 pr-8 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            Contact to DHH News
+          </h1>
+          <p className="mt-2 max-w-3xl text-gray-500 dark:text-gray-300">
+            Share any problem, feedback, or question you have.
+          </p>
         </div>
       </div>
+
       <section className="relative" aria-labelledby="contactHeading">
         <div className="absolute h-1/2 w-full " aria-hidden="true" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

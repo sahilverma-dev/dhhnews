@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { FC } from "react";
 import { PortableTextBlock } from "sanity";
 
 import { PortableText } from "@portabletext/react";
@@ -9,27 +9,21 @@ import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
 import YoutubeEmbed from "./youtube-embed";
-import { Button } from "../ui/button";
+
 import InstagramEmbed from "./instagram-embed";
+import TwitterEmbed from "./twitter-embed";
 
 interface Props {
   slug: string;
   content: PortableTextBlock[];
 }
 
-const Content: React.FC<Props> = ({ slug, content }) => {
+const Content: FC<Props> = ({ slug, content }) => {
   return (
     <article
       id={slug}
       className="w-full max-w-6xl mx-auto p-4 text-gray-600 dark:text-gray-400"
     >
-      <Button
-        onClick={() => {
-          console.log(content);
-        }}
-      >
-        click
-      </Button>
       <PortableText
         value={content}
         components={{
@@ -92,6 +86,7 @@ const Content: React.FC<Props> = ({ slug, content }) => {
             ),
             youtube: ({ value }: any) => <YoutubeEmbed url={value?.url} />,
             instagram: ({ value }: any) => <InstagramEmbed url={value?.url} />,
+            tweet: ({ value }: any) => <TwitterEmbed id={value?.id} />,
           },
           marks: {
             link: ({ children, value }: any) => {

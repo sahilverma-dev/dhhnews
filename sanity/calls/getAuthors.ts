@@ -1,15 +1,14 @@
 import { groq } from "next-sanity";
 
 import { client } from "../lib/client";
-import { Artist } from "@/interfaces";
+import { Author } from "@/interfaces";
 
-export const getArtists: () => Promise<Artist[]> = async () => {
+export const getAuthors: () => Promise<Author[]> = async () => {
   const results = await client.fetch(
-    groq`*[_type == 'artist']{
+    groq`*[_type == 'author']{
       _id,
       _createdAt,
-      artistName,
-      realName,
+      name,
       'slug': slug.current,
       'image': {
           'src': image.asset->url,

@@ -19,7 +19,10 @@ const CustomTooltip: FC<Props> = ({ title, children }) => {
     <TooltipProvider>
       <Tooltip delayDuration={20}>
         <TooltipTrigger>{children}</TooltipTrigger>
-        <TooltipContent side="left">
+        <TooltipContent
+          side="left"
+          className="dark:bg-zinc-800 dark:text-white"
+        >
           <p>{title}</p>
         </TooltipContent>
       </Tooltip>

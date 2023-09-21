@@ -13,10 +13,10 @@ interface Props {
 
 const NewsCard: FC<Props> = ({ news }) => {
   return (
-    <div className="md:mb-8 mb-4 space-y-2">
+    <div className="mb-8 space-y-2 w-full">
       <Link
         href={`/news/${news.slug}`}
-        className="relative block group aspect-video rounded-lg overflow-hidden"
+        className="relative block group aspect-video rounded-lg overflow-hidden border"
       >
         <div className="absolute top-3 left-3 md:top-4 md:left-4 category-badge">
           {news.categories[0].title}
@@ -32,37 +32,39 @@ const NewsCard: FC<Props> = ({ news }) => {
       </Link>
       <div className="w-full">
         <div className="flex items-center gap-2">
-          <Link href={news?.author?.slug}>
-            <Avatar>
-              <AvatarImage
-                src={news?.author?.image.src}
-                alt={news?.author?.image.alt}
-                height={32}
-                width={32}
-              />
-            </Avatar>
-          </Link>
+          {/* <Link href={`/author/${news?.author?.slug}`}> */}
+          <Avatar>
+            <AvatarImage
+              src={news?.author?.image.src}
+              alt={news?.author?.image.alt}
+              height={32}
+              width={32}
+            />
+          </Avatar>
+          {/* </Link> */}
           <div>
-            <Link
-              href={`/author/${news?.author?.slug}`}
+            <div
+              // href={`/author/${news?.author?.slug}`}
               title={`Posts by ${news?.author?.name}`}
               rel="author"
               className="text-title dark:text-white text-base font-semibold hover:text-primary"
             >
               {news?.author?.name}
-            </Link>
+            </div>
 
             <div className="text-gray-400 text-xs">
               posted at, {formatDate(news?._createdAt)}
             </div>
           </div>
         </div>
-        <h5 className="font-bold text-title dark:text-white text-2xl md:text-4xl font-poppins mb-0 mt-4 hover:text-primary">
-          <Link href={`/news/${news?.slug}`}>{news?.title}</Link>
-        </h5>
-        <p className="py-2 text-sm md:text-base md:py-4 font-poppins text-gray-400 dark:text-gray-300">
-          {news?.description}
-        </p>
+        <Link href={`/news/${news?.slug}`} className="w-full">
+          <h5 className="font-bold text-title dark:text-white text-2xl md:text-4xl font-poppins mb-0 mt-2 md:mt-4 hover:text-primary">
+            {news?.title}
+          </h5>
+          <p className="py-2 w-full text-sm md:text-base md:py-4 font-poppins text-gray-400 dark:text-gray-300">
+            {news?.description}
+          </p>
+        </Link>
       </div>
     </div>
   );

@@ -68,16 +68,16 @@ const News: FC<Props> = async ({ params }) => {
                 Home
               </Link>
               <span className="text-gray-200">/</span>
-              <Link
-                title={`Go to ${news.categories[0].slug}.`}
-                href="/author/katen"
+              <div
+                // title={`Go to ${news.categories[0].slug}.`}
+                // href="/author/katen"
                 className="text-white text-sm"
               >
                 {news.categories[0].title}
-              </Link>
+              </div>
               <span className="text-gray-200">/</span>
               <Link
-                title="Go to Katen Sites."
+                title={news.title}
                 href={`/news/${news.slug}`}
                 className="text-gray-300 text-sm"
               >
@@ -89,10 +89,10 @@ const News: FC<Props> = async ({ params }) => {
                 {news.title}
               </h1>
               <div className="flex items-center gap-2">
-                <Link
-                  href={`/author/${news.author.slug}`}
-                  title={`Posts by ${news.author.name}`}
-                  rel="author"
+                <div
+                // href={`/author/${news.author.slug}`}
+                // title={`Posts by ${news.author.name}`}
+                // rel="author"
                 >
                   <Image
                     src={news.author.image.src}
@@ -101,16 +101,16 @@ const News: FC<Props> = async ({ params }) => {
                     width={32}
                     className="rounded-full"
                   />
-                </Link>
+                </div>
                 <div>
-                  <Link
-                    href={`/author/${news.author.slug}`}
-                    title={`Posts by ${news.author.name}`}
-                    rel="author"
+                  <div
+                    // href={`/author/${news.author.slug}`}
+                    // title={`Posts by ${news.author.name}`}
+                    // rel="author"
                     className="text-white text-base font-semibold hover:text-primary"
                   >
                     {news.author.name}
-                  </Link>
+                  </div>
 
                   <div
                     className="text-gray-100 text-xs"

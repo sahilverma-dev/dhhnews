@@ -36,7 +36,12 @@ export const getNews: () => Promise<News[]> = async () => {
               'alt': image.alt
           }
       },
-  }`
+  }`,
+    {
+      next: {
+        revalidate:  60,
+      },
+    }
   );
 
   return results;

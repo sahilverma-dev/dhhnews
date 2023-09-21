@@ -1,6 +1,11 @@
 "use client";
 
+// react
 import { FC } from "react";
+
+// next
+import Link from "next/link";
+import Image from "next/image";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,10 +17,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
 
-import Image from "next/image";
+// interfaces
 import { News } from "@/interfaces";
-import { Button } from "../ui/button";
-import Link from "next/link";
+
+// utils
 import { formatDate } from "@/lib/utils";
 
 interface Props {
@@ -45,38 +50,35 @@ const Carousel: FC<Props> = ({ feature }) => {
               height: 400,
             }}
           >
-            <div className="relative w-full h-full group rounded-lg aspect-video md:aspect-auto overflow-hidden">
+            <Link
+              href={`/news/${item.slug}`}
+              className="relative w-full h-full group rounded-lg aspect-video md:aspect-auto overflow-hidden"
+            >
               <div className="absolute inset-0 w-full h-full bg-black/50" />
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col text-center w-full max-w-[650px] items-center gap-2 md:gap-4">
-                <Link
-                  href={`/category/${item.categories[0].slug}`}
-                  tabIndex={0}
+                <div
+                  // href={`/category/${item.categories[0].slug}`}
+                  // tabIndex={0}
                   className="text-white transition-all"
                 >
                   <div className="category-badge">
                     {item.categories[0].title}
                   </div>
-                </Link>
+                </div>
                 <h4 className="text-2xl w-[80%] md:w-full md:text-4xl font-bold my-1 md:my-5">
-                  <Link
-                    href={`/news/${item.slug}`}
-                    tabIndex={0}
-                    className="text-white transition-all"
-                  >
-                    {item.title}
-                  </Link>
+                  <p className="text-white transition-all">{item.title}</p>
                 </h4>
                 <ul className="flex gap-3 items-center text-sm text-gray-100 md:text-gray-200 mb-0">
                   <li className="list-inline-item">
-                    <Link
-                      href={`/author/${item.author.slug}`}
-                      title={`Posts by ${item.author.name}`}
-                      rel="author"
-                      tabIndex={0}
-                      className="font-medium text-white hover:text-primary"
+                    <div
+                      // href={`/author/${item.author.slug}`}
+                      // title={`Posts by ${item.author.name}`}
+                      // rel="author"
+                      // tabIndex={0}
+                      className="font-medium inline text-white hover:text-primary"
                     >
                       {item.author.name}
-                    </Link>{" "}
+                    </div>{" "}
                     posted at {formatDate(item._createdAt)}
                   </li>
                 </ul>
@@ -89,7 +91,7 @@ const Carousel: FC<Props> = ({ feature }) => {
                 height={400}
                 className="w-full h-full object-cover "
               />
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

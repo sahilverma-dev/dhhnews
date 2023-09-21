@@ -32,9 +32,12 @@ export interface Label {
   logo: SanityImage;
 }
 
+export type Role = "admin" | "author";
+
 export interface Author {
   name: string;
   slug: string;
+  role: Role;
   image: SanityImage;
 }
 

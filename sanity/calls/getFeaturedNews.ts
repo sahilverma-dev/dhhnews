@@ -29,7 +29,12 @@ export const getFeaturedNews: () => Promise<News[]> = async () => {
             'slug': slug.current
         },
     },
-  }`
+  }`,
+    {
+      next: {
+        revalidate: 60 * 60,
+      },
+    }
   );
 
   return result[0].news as News[];

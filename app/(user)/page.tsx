@@ -1,23 +1,28 @@
-import Carousel from "@/components/custom/carousel";
-import CustomTooltip from "@/components/custom/custom-tooltip";
-import NewsCard from "@/components/custom/news-card";
-import { getFeaturedNews } from "@/sanity/calls/getFeaturedNews";
-import { getNews } from "@/sanity/calls/getNews";
+// next
 import Link from "next/link";
+
+// sanity calls
+import { getFeaturedNews } from "@/sanity/calls/getFeaturedNews";
+import { getPaginationNews } from "@/sanity/calls/getPaginationNews";
+
+// components
+import Carousel from "@/components/custom/carousel";
+import NewsCard from "@/components/custom/news-card";
+import CustomTooltip from "@/components/custom/custom-tooltip";
 
 // icons
 import { AiOutlineInfoCircle as InfoIcon } from "react-icons/ai";
 
 const Home = async () => {
-  const news = await getNews();
+  const { news } = await getPaginationNews(1);
   const feature = await getFeaturedNews();
   return (
-    <main className="p-4 max-w-5xl mx-auto">
+    <main className="p-4 max-w-5xl w-full mx-auto">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
           Featured
         </h3>
-        <CustomTooltip title="Featured news changes every day">
+        <CustomTooltip title="Featured news changes on the daily basic">
           <InfoIcon />
         </CustomTooltip>
       </div>

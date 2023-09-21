@@ -1,7 +1,10 @@
 import { defineType, defineArrayMember } from "sanity";
 
 // icons
-import { AiFillYoutube as YoutubeIcon } from "react-icons/ai";
+import {
+  AiFillYoutube as YoutubeIcon,
+  AiOutlineTwitter as TwitterIcon,
+} from "react-icons/ai";
 import { FaInstagram as InstagramIcon } from "react-icons/fa";
 
 export default defineType({
@@ -68,6 +71,11 @@ export default defineType({
       type: "instagram",
       title: "Instagram",
       icon: InstagramIcon,
+    }),
+    defineArrayMember({
+      type: "tweet",
+      title: "Twitter",
+      icon: TwitterIcon,
     }),
   ],
 });

@@ -30,7 +30,7 @@ const Header = () => {
   const [search, setSearch] = useState("");
   return (
     <>
-      <header className="w-full px-4 py-6 border-b">
+      <header className="w-full px-4 py-4 md:py-6 border-b">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex items-center justify-between">
             <div className="w-20">
@@ -44,23 +44,20 @@ const Header = () => {
               </Button>
             </div>
             <div className=" text-center">
-              <Link href="/" className="navbar-brand dark:hidden">
+              <Link href="/" className="navbar-brand ">
                 <Image
-                  src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo.svg"
-                  alt="Katen"
-                  width={118}
-                  height={26}
+                  src="/images/logo-dark-long.svg"
+                  alt="DHH News"
+                  width={150}
+                  height={50}
+                  className="h-5 md:h-6 w-auto dark:hidden"
                 />
-              </Link>
-              <Link
-                href="/"
-                className="navbar-brand hidden dark:block logo-light"
-              >
                 <Image
-                  src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo-light.svg"
-                  alt="Katen"
-                  width={118}
-                  height={26}
+                  src="/images/logo-light-long.svg"
+                  alt="DHH News"
+                  width={150}
+                  height={50}
+                  className="h-5 md:h-6 w-auto hidden dark:block "
                 />
               </Link>
             </div>
@@ -117,22 +114,22 @@ const Header = () => {
           <div className="">
             <Link href="/">
               <Image
-                src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo-light.svg"
-                alt="Katen"
+                src="/images/logo-light-long.svg"
+                alt="DHH News"
                 width={118}
                 height={26}
-                className="hidden dark:block"
+                className="hidden dark:block h-5 w-auto"
               />
               <Image
-                src="https://themeger.shop/wordpress/katen/minimal/wp-content/uploads/sites/5/2022/08/logo.svg"
-                alt="Katen"
+                src="/images/logo-dark-long.svg"
+                alt="DHH News"
                 width={118}
                 height={26}
-                className="block dark:hidden"
+                className="block dark:hidden h-5 w-auto"
               />
             </Link>
           </div>
-          <nav className="mt-12">
+          <nav className="mt-6 md:mt-12">
             <ul>
               {menuData.map((menu) => (
                 <li

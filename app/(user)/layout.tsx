@@ -9,7 +9,7 @@ import TanstackQueryProvider from "@/components/providers/tanstack-query-provide
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://dhhnews.vercel.app/"),
   title: {
     default: "DHH News - Home",
@@ -19,6 +19,9 @@ export const metadata = {
     "Welcome to DHH News, your go-to source for all the latest DHH-related news in one convenient location.",
   openGraph: {
     images: ["/images/open-graph.png"],
+  },
+  icons: {
+    icon: "/images/favicon.ico",
   },
   verification: {
     google: "",

@@ -6,6 +6,7 @@ import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/custom/header";
 import Footer from "@/components/custom/footer";
 import TanstackQueryProvider from "@/components/providers/tanstack-query-provider";
+import GoogleAnalytics from "../../components/custom/google-analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body className={inter.className}>
         <TanstackQueryProvider>
           <ThemeProvider

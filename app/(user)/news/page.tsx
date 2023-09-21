@@ -10,7 +10,7 @@ interface Props {
 
 export const metadata = {
   title: "News",
-  description: "List of all news",
+  description: "List of all news.",
 };
 
 const News: FC<Props> = async ({ searchParams }) => {

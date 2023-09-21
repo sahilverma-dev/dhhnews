@@ -4,7 +4,6 @@ import { getSearchQuery } from "@/sanity/calls/getSearchQuery";
 import { FC } from "react";
 
 interface Props {
-  params: {};
   searchParams: { q: string };
 }
 
@@ -14,14 +13,14 @@ export const metadata = {
 };
 
 const Search: FC<Props> = async ({ searchParams }) => {
-  const { artists, news } = await getSearchQuery(searchParams.q);
+  const { news } = await getSearchQuery(searchParams.q);
 
   return (
     <main className="p-4 w-full max-w-5xl mx-auto flex flex-col gap-4">
       <h3 className=" text-title dark:text-white">
         Search results for {searchParams.q}
       </h3>
-      {artists.length > 0 && (
+      {/* {artists.length > 0 && (
         <>
           <div className="flex items-center justify-between w-full">
             <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
@@ -34,13 +33,13 @@ const Search: FC<Props> = async ({ searchParams }) => {
             ))}
           </div>
         </>
-      )}
+      )} */}
 
       {news.length > 0 && (
         <>
-          <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
+          {/* <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
             News
-          </h3>
+          </h3> */}
 
           {news.map((news) => (
             <NewsCard key={news.slug} news={news} />
@@ -48,7 +47,7 @@ const Search: FC<Props> = async ({ searchParams }) => {
         </>
       )}
 
-      {news.length === 0 && artists.length === 0 && (
+      {news.length === 0 && (
         <div className="h-[500px] md:h-[600px] w-full flex items-center justify-center font-normal text-title dark:text-white">
           Sorry, but we couldn&apos;t find any results related to your query.
         </div>

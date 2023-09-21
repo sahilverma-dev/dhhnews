@@ -88,6 +88,7 @@ const Header = () => {
                   >
                     <div className="flex items-center gap-2">
                       <Input
+                        autoFocus
                         type="search"
                         placeholder="Enter your query..."
                         value={search}

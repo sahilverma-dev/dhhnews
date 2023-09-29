@@ -19,7 +19,7 @@ export const getArtists: () => Promise<Artist[]> = async () => {
   }`,
     {
       next: {
-        revalidate: 60 * 60,
+        revalidate: 60,
       },
     }
   );

@@ -32,7 +32,7 @@ export const getFeaturedNews: () => Promise<News[]> = async () => {
   }`,
     {
       next: {
-        revalidate: 60 * 60,
+        revalidate: 60,
       },
     }
   );

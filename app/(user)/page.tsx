@@ -18,28 +18,33 @@ const Home = async () => {
   const feature = await getFeaturedNews();
   return (
     <main className="p-4 max-w-5xl w-full mx-auto">
-      <div className="flex items-center justify-between  w-full">
-        <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
-          Featured
-        </h3>
-        <CustomTooltip title="Featured news changes on the daily basic">
-          <InfoIcon />
-        </CustomTooltip>
-      </div>
-      <Carousel feature={feature} />
-
+      {feature?.length >= 5 && (
+        <>
+          <div className="flex items-center justify-between  w-full">
+            <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
+              Featured
+            </h3>
+            <CustomTooltip title="Featured news changes on the daily basic">
+              <InfoIcon />
+            </CustomTooltip>
+          </div>
+          <Carousel feature={feature} />
+        </>
+      )}
       <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
         News
       </h3>
 
-      {news.map((news) => (
+      {news?.map((news) => (
         <NewsCard key={news.slug} news={news} />
       ))}
-      <div className="w-full flex items-center justify-center">
-        <Link href="/news" className="btn rounded-full font-bold">
-          More News
-        </Link>
-      </div>
+      {news?.length > 10 && (
+        <div className="w-full flex items-center justify-center">
+          <Link href="/news" className="btn rounded-full font-bold">
+            More News
+          </Link>
+        </div>
+      )}
     </main>
   );
 };

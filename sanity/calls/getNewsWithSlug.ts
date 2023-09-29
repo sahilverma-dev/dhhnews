@@ -43,7 +43,7 @@ export const getNewsWithSlug: (slug: string) => Promise<News> = async (
     {
       slug,
       next: {
-        revalidate: 60 * 60,
+        revalidate: 60,
       },
     }
   );

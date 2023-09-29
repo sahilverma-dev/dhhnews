@@ -18,7 +18,7 @@ export const getAuthors: () => Promise<Author[]> = async () => {
   }`,
     {
       next: {
-        revalidate: 60 * 60,
+        revalidate: 60,
       },
     }
   );

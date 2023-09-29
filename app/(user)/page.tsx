@@ -18,7 +18,7 @@ const Home = async () => {
   const feature = await getFeaturedNews();
   return (
     <main className="p-4 max-w-5xl w-full mx-auto">
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between  w-full">
         <h3 className="font-bold mb-4 text-xl md:text-3xl text-title dark:text-white">
           Featured
         </h3>

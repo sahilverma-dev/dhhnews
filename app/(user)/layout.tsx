@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dhhnews.vercel.app/"),
   applicationName: APP_NAME,
   title: {
-    default: `${APP_NAME} - Home"`,
+    default: `${APP_NAME} - Home`,
     template: `${APP_NAME} - %s`,
   },
   description: APP_DESCRIPTION,

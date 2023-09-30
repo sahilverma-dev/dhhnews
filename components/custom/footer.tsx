@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,7 +12,15 @@ const Footer = () => {
           <div className="w-full flex items-center justify-between flex-col md:flex-row gap-y-2 md:gap-y-4">
             <div className="col-md-4">
               <span className="text-gray-400">
-                © 2023 Katen. Theme by{" "}
+                © 2023
+                <Link
+                  href="/"
+                  className="text-zinc-900 dark:text-white font-bold translate-x-full"
+                >
+                  {" "}
+                  DHH News{" "}
+                </Link>
+                Made by{" "}
                 <a
                   href="https://sahilverma.dev/"
                   target="_blank"
@@ -22,7 +31,7 @@ const Footer = () => {
               </span>
             </div>
             {/* TODO: change icons */}
-            <div className="col-md-4 text-center">
+            {/* <div className="col-md-4 text-center">
               <ul className="social-icons list-unstyled list-inline mb-0 ">
                 <li className="list-inline-item">
                   <a href="http://facebook.com/username" target="_blank">
@@ -55,7 +64,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="col-md-4">
               <Button
                 id="return-to-top"

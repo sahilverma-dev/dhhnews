@@ -59,7 +59,9 @@ export const metadata: Metadata = {
     siteName: APP_NAME,
     images: ["/images/open-graph.png"],
   },
-
+  other: {
+    "google-site-verification": "NZ7R4WO9a2HmjUT-KzFOrPpS3C7IpuSagFpCnjMMHHI",
+  },
   icons: [
     { rel: "apple-touch-icon", url: "/icon-192x192.png" },
     { rel: "icon", url: "/images/favicon.ico" },

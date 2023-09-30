@@ -1,5 +1,3 @@
-import { getInstagramId } from "@/lib/utils";
-
 import { FC } from "react";
 interface Props {
   url: string;

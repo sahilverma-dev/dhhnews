@@ -78,12 +78,12 @@ const Header = () => {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      console.log(search);
-                      router.push(
-                        `/search?q=${search
-                          .toLocaleLowerCase()
-                          .replaceAll(" ", "-")}`
-                      );
+                      if (search.length > 0)
+                        router.push(
+                          `/search?q=${search
+                            .toLocaleLowerCase()
+                            .replaceAll(" ", "-")}`
+                        );
                     }}
                   >
                     <div className="flex items-center gap-2">

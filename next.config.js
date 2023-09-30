@@ -1,11 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    images: {
-        domains: [
-            "cdn.sanity.io",
-            "themeger.shop"
-        ],
-    }
-}
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ["cdn.sanity.io", "themeger.shop"],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== "development",
+  },
+};
+
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  skipWaiting: true,
+});
+
+module.exports = withPWA(nextConfig);

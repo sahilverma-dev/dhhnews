@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ["/images/open-graph.png"],
   },
   other: {
-    "google-site-verification": "NZ7R4WO9a2HmjUT-KzFOrPpS3C7IpuSagFpCnjMMHHI",
+    "google-site-verification": "sv7VdNrqX_97aBYi4EYratZtvoDqinmGGM9XALGtb70",
   },
   icons: [
     { rel: "apple-touch-icon", url: "/icon-192x192.png" },

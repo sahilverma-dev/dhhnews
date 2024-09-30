@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DHH News
+
+![DHH News](./public/images/open-graph.png)
+
+At DHH News, we are passionate about celebrating and promoting Indian hip hop culture. We believe in the power of music, dance, and art to inspire, connect, and create positive change. Our mission is to provide you with the latest updates, interviews, reviews, and insights into the vibrant Indian hip hop scene.
+
+[Live Link](https://dhhnews.vercel.app/)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Contact me](#contact-me)
+
+## Overview
+
+At DHH News, we are passionate about celebrating and promoting Indian hip hop culture. We believe in the power of music, dance, and art to inspire, connect, and create positive change. Our mission is to provide you with the latest updates, interviews, reviews, and insights into the vibrant Indian hip hop scene.
+
+## Screenshots
+
+![Screenshot 1](<./screenshots/screenshot%20(1).png>)
+![Screenshot 2](<./screenshots/screenshot%20(3).png>)
+![Screenshot 3](<./screenshots/screenshot%20(4).png>)
+![Screenshot 4](<./screenshots/screenshot%20(2).png>)
+
+## Technologies Used
+
+- Next JS 14 (app router)
+- Tailwind CSS
+- Typescript
+- Sanity IO
+
+## Features
+
+- Beautiful UI
+- Dark Theme
+- Search Engine Optimized
+- Integrated CMS with sanity
+- PWA support
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. Clone the repository:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/sahilverma-dev/dhhnews
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Navigate to the project directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   cd dhhnews
+   ```
 
-## Learn More
+3. Install packages
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm i
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Create account on sanity.io and add your credential on [.env](/.env) like from [.env.example](./.env.example)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Start project
 
-## Deploy on Vercel
+   ```bash
+   npm start
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Email:** [sahilverma.webdev@gmail.com](mailto:sahilverma.webdev@gmail.com)
+- **Portfolio:** [sahilverma.dev](https://sahilverma.dev/)
+- **GitHub:** [@sahilverma-dev](https://github.com/sahilverma-dev)
+- **Twitter:** [@sahilverma_dev](https://twitter.com/sahilverma_dev)
+- **LinkedIn:** [sahilverma-dev](https://www.linkedin.com/in/sahilverma-dev/)

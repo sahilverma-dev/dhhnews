@@ -52,9 +52,9 @@ const NewsCard: FC<Props> = ({ news }) => {
               {news?.author?.name}
             </div>
 
-            <div className="text-gray-400 text-xs">
+            {/* <div className="text-gray-400 text-xs">
               posted at, {formatDate(news?._createdAt)}
-            </div>
+            </div> */}
           </div>
         </div>
         <Link href={`/news/${news?.slug}`} className="w-full">

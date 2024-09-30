@@ -112,12 +112,12 @@ const News: FC<Props> = async ({ params }) => {
                     {news.author.name}
                   </div>
 
-                  <div
+                  {/* <div
                     className="text-gray-100 text-xs"
                     title={`Post added at ${formatDate(news._createdAt)}`}
                   >
                     posted at, {formatDate(news._createdAt)}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
